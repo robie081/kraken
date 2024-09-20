@@ -58,15 +58,15 @@ function kraken() {
         // console.log(trades);
 
         let tradeDetails = trades.map(trade => {
-            const value = (parseFloat(trade[0]).toFixed(2) * parseFloat(trade[1])).toFixed(2);
+            // const value = (parseFloat(trade[0]).toFixed(2) * parseFloat(trade[1])).toFixed(2);
             // const formattedValue = parseFloat(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            const formattedValue = parseFloat(value).toLocaleString();
+            // const formattedValue = parseFloat(value).toLocaleString();
             // console.log(formattedValue);
             return {
                 price: parseFloat(trade[0]).toFixed(2),
                 amount: parseFloat(trade[1]).toFixed(3),
-                // value: (parseFloat(trade[0]).toFixed(2) * parseFloat(trade[1])).toFixed(2)
-                value: formattedValue
+                value: parseFloat((parseFloat(trade[0]).toFixed(2) * parseFloat(trade[1])).toFixed(2)).toLocaleString()
+                // value: formattedValue
             }
         });
 
