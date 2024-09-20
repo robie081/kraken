@@ -44,7 +44,7 @@
 
 
 
-// Fourth -- create table dynamically, fetch only 10 trades
+// Fourth -- create table dynamically, fetches only the last 10 trades, every 10 seconds
 // Works with index.html
 
 function kraken() {
@@ -58,10 +58,15 @@ function kraken() {
         // console.log(trades);
 
         let tradeDetails = trades.map(trade => {
+            const value = (parseFloat(trade[0]).toFixed(2) * parseFloat(trade[1])).toFixed(2);
+            // const formattedValue = parseFloat(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            const formattedValue = parseFloat(value).toLocaleString();
+            console.log(formattedValue);
             return {
                 price: parseFloat(trade[0]).toFixed(2),
                 amount: parseFloat(trade[1]).toFixed(3),
-                value: (parseFloat(trade[0]).toFixed(2) * parseFloat(trade[1])).toFixed(2)
+                // value: (parseFloat(trade[0]).toFixed(2) * parseFloat(trade[1])).toFixed(2)
+                value: formattedValue
             }
         });
 
