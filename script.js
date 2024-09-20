@@ -61,7 +61,7 @@ function kraken() {
             const value = (parseFloat(trade[0]).toFixed(2) * parseFloat(trade[1])).toFixed(2);
             // const formattedValue = parseFloat(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             const formattedValue = parseFloat(value).toLocaleString();
-            console.log(formattedValue);
+            // console.log(formattedValue);
             return {
                 price: parseFloat(trade[0]).toFixed(2),
                 amount: parseFloat(trade[1]).toFixed(3),
